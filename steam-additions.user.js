@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Steam Additions
 // @namespace    http://tampermonkey.net/
-// @version      1
+// @version      2
 // @description  Add some features to the Steam website
 // @author       Matty
-// @match        https://steamcommunity.com/market
+// @match        https://steamcommunity.com/market/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=steamcommunity.com
 // @grant        none
 // @updateURL    https://github.com/MathiasLui/steam-additions/raw/main/steam-additions.user.js
@@ -30,6 +30,7 @@
          // of any market history item that has an inspect link
         if (e.target.classList.contains('economy_item_hoverable')) {
             e.target.style.cursor = 'pointer';
+            e.target.setAttribute('title', 'Click to inspect item in-game'); // Set tooltip
 
             currentInspectLink = fetchInspectLinkFromLastHoveredItem();
         }
